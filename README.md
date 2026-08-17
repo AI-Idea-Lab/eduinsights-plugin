@@ -27,6 +27,12 @@ Claude can select a workflow from your request. You can also invoke one directly
 /eduinsights:draft-eduinsights-brief
 ```
 
+## Test the plugin
+
+Follow the [dated testing guide](./docs/testing.md) to test the published plugin in Claude Code, connect the MCP server in ChatGPT developer mode, or load the complete plugin from a local marketplace.
+
+The guide records what is ready on each surface, the prompts to test, and the official OpenAI and Anthropic references used to verify the steps.
+
 ## Test a local checkout
 
 Load the plugin for one Claude Code session without installing it:
