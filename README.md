@@ -1,6 +1,6 @@
 # EduInsights agent plugin
 
-Install EduInsights workflows and its read-only MCP server in Claude Code or Codex.
+Install EduInsights workflows and its read-only MCP server in Claude Code, ChatGPT desktop, or Codex.
 
 The plugin researches U.S. colleges, reported fields, careers, workforce measures, accreditation, and observed AI use. Every answer can show its sources.
 
@@ -27,9 +27,20 @@ Claude can select a workflow from your request. You can also invoke one directly
 /eduinsights:draft-eduinsights-brief
 ```
 
+## Install in ChatGPT desktop or Codex
+
+Add the public plugin repository as a marketplace, then install the plugin:
+
+```bash
+codex plugin marketplace add AI-Idea-Lab/eduinsights-plugin
+codex plugin add eduinsights@eduinsights
+```
+
+Start a new ChatGPT desktop conversation or Codex task after installation. The plugin loads the skills and MCP server together.
+
 ## Test the plugin
 
-Follow the [dated testing guide](./docs/testing.md) to test the published plugin in Claude Code, connect the MCP server in ChatGPT developer mode, or load the complete plugin from a local marketplace.
+Follow the [dated testing guide](./docs/testing.md) to test the published plugin, connect only the MCP server, or load a local checkout.
 
 The guide records what is ready on each surface, the prompts to test, and the official OpenAI and Anthropic references used to verify the steps.
 
@@ -49,9 +60,9 @@ claude plugin validate . --strict
 
 ## Connect only the MCP server
 
-Connect `https://mcp.eduinsights.ai/mcp` when your client supports MCP but not plugins. This exposes the tools and MCP prompts, not the complete skill instructions.
+Connect `https://mcp.eduinsights.ai/mcp` when your client supports MCP but not plugins. This fallback exposes the tools and MCP prompts, not the complete skill instructions.
 
-## Install in Codex from a local checkout
+## Test a local checkout in Codex
 
 In the EduInsights monorepo, add its local catalog and install the plugin:
 

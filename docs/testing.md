@@ -9,9 +9,9 @@ These instructions describe the product interfaces and documentation available o
 | Surface | What it tests | Status on August 17, 2026 |
 | --- | --- | --- |
 | Claude Code | Three skills and the public MCP server as one plugin | Ready |
-| ChatGPT developer mode | The public MCP server and its tools | Ready |
-| ChatGPT desktop local marketplace | Three skills plus the registered MCP connection | Needs the one-time ChatGPT connection mapping described below |
-| Codex local marketplace | Three skills and the public MCP server as one plugin | Ready |
+| ChatGPT desktop and Codex | Three skills and the public MCP server as one plugin | Ready |
+| Direct ChatGPT MCP connection | The public MCP server and its tools | Ready fallback |
+| Local plugin checkout | Unpublished skills, manifests, and MCP configuration | Ready |
 
 Connecting only the MCP server tests its tools and MCP prompts. It does not install the longer skill instructions in this repository.
 
@@ -55,9 +55,23 @@ claude --plugin-dir plugins/eduinsights
 
 This is the fastest way to test edits before committing them. Run `/reload-plugins` after a change when Claude asks you to reload.
 
-## Test the public MCP server in ChatGPT
+## Test the published plugin in ChatGPT desktop or Codex
 
-This path tests EduInsights tools now. It does not install the three bundled skills.
+Add the public GitHub repository as a marketplace, then install the plugin:
+
+```bash
+codex plugin marketplace add AI-Idea-Lab/eduinsights-plugin
+codex plugin add eduinsights@eduinsights
+codex plugin list --json
+```
+
+Start a new ChatGPT desktop conversation or Codex task. Ask the natural-language research question above, then invoke each skill directly when the surface exposes skill invocation.
+
+Confirm that the installed plugin is enabled. It should expose three EduInsights skills and the `eduinsights` MCP server.
+
+## Test only the public MCP server in ChatGPT
+
+Use this fallback when you need to test the MCP tools without installing the plugin. It does not install the three bundled skills.
 
 1. In ChatGPT, open **Settings → Security and login** and turn on **Developer mode**. Availability can depend on your account and workspace policy.
 2. Open [ChatGPT Plugins](https://chatgpt.com/plugins) and select the plus button.
@@ -71,24 +85,7 @@ For raw request and response logs, use the [OpenAI API Playground](https://platf
 
 After a server release changes tool names, descriptions, schemas, annotations, authentication, or UI resources, open the connection at [ChatGPT Plugins](https://chatgpt.com/plugins), select **Refresh**, and start a new chat.
 
-## Test the complete local plugin in ChatGPT
-
-ChatGPT's documented local-plugin path uses a registered MCP connection mapping. The repository does not contain that mapping yet because ChatGPT creates its technical connection ID in your account or workspace.
-
-Complete this one-time setup before testing the full bundle:
-
-1. Register `https://mcp.eduinsights.ai/mcp` at [ChatGPT Plugins](https://chatgpt.com/plugins).
-2. Copy the technical ID from the browser URL. It starts with `plugin_asdk_app`.
-3. Give the ID and this plugin directory to `@plugin-creator` in ChatGPT Work mode or `$plugin-creator` in Codex.
-4. Confirm that the generated `.app.json` points to the correct technical ID.
-5. Confirm that `.codex-plugin/plugin.json` contains `"apps": "./.app.json"`.
-6. Restart the ChatGPT desktop app from the EduInsights monorepo.
-7. Open the Plugins Directory, find EduInsights from the repository marketplace, and install it.
-8. Start a new chat with the plugin enabled and run the test prompts below.
-
-The monorepo already provides `.agents/plugins/marketplace.json`, so ChatGPT desktop can discover `plugins/eduinsights` as a local plugin. ChatGPT installs a cached copy. Restart or reinstall after packaging changes when the installed copy is stale.
-
-## Test in Codex from the monorepo
+## Test a local checkout in ChatGPT desktop or Codex
 
 Add the repository marketplace and install the plugin:
 
@@ -157,10 +154,11 @@ Run `/reload-plugins` inside an open Claude Code session, or start a new session
 ## Troubleshooting
 
 - **Developer mode does not appear in ChatGPT:** your account or workspace policy may not allow it.
-- **ChatGPT shows tools but not the bundled skills:** you connected the MCP server only. Install the complete plugin from a local marketplace to test skills and tools together.
+- **ChatGPT shows tools but not the bundled skills:** you connected only the MCP server. Install the plugin to load skills and tools together.
 - **ChatGPT shows old tool metadata:** refresh the connection, then start a new chat.
 - **Claude Code cannot find the plugin:** confirm `.claude-plugin/marketplace.json` exists in the public repository and run `claude plugin validate .` from the plugin directory.
 - **Claude Code installed an older copy:** update the marketplace and plugin, then reload plugins or start a new session.
+- **ChatGPT desktop or Codex installed an older copy:** upgrade the marketplace, remove the plugin, then install it again.
 
 ## Reference material
 
@@ -168,6 +166,8 @@ These official sources were rechecked on August 17, 2026:
 
 - OpenAI: [Connect and test your plugin](https://developers.openai.com/plugins/deploy/connect-chatgpt)
 - OpenAI: [Package your plugin](https://developers.openai.com/plugins/build/plugins)
+- OpenAI: [Use and install plugins](https://learn.chatgpt.com/docs/plugins)
+- OpenAI: [Codex plugin commands](https://learn.chatgpt.com/docs/developer-commands#codex-plugin)
 - Anthropic: [Discover and install plugins](https://code.claude.com/docs/en/discover-plugins)
 - Anthropic: [Create and test plugins](https://code.claude.com/docs/en/plugins)
 - Anthropic: [Create and distribute a plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces)
