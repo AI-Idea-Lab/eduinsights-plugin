@@ -1,6 +1,6 @@
 {
   "name": "eduinsights",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Research U.S. colleges, reported fields, careers, and observed AI use with traceable public evidence.",
   "author": {
     "name": "AI Idea Lab",
@@ -31,6 +31,9 @@
     ],
     "websiteURL": "https://eduinsights.ai/",
     "brandColor": "#5452E8",
+    "composerIcon": "./assets/eduinsights-composer.svg",
+    "logo": "./assets/eduinsights-mark.svg",
+    "logoDark": "./assets/eduinsights-mark-light.svg",
     "defaultPrompt": [
       "Compare computer science at UNC-Chapel Hill and NC State.",
       "Which careers related to nursing show observed AI use?",
