@@ -38,6 +38,29 @@ codex plugin add eduinsights@eduinsights
 
 Start a new ChatGPT desktop conversation or Codex task after installation. The plugin loads the skills and MCP server together.
 
+## Update an installed plugin
+
+Treat Codex updates as manual. Refresh the marketplace, install the latest published version, and verify the result:
+
+```bash
+codex plugin marketplace upgrade eduinsights
+codex plugin add eduinsights@eduinsights
+codex plugin list --json
+```
+
+Start a new ChatGPT desktop conversation or Codex task after the update.
+
+Claude Code can update third-party plugins automatically after you enable the marketplace setting. It is off by default for third-party marketplaces.
+
+Run `/plugin`, open **Marketplaces**, select `eduinsights`, and choose **Enable auto-update**. For a manual update, run:
+
+```bash
+claude plugin marketplace update eduinsights
+claude plugin update eduinsights@eduinsights
+```
+
+Run `/reload-plugins` inside an open Claude Code session, or start a new session.
+
 ## Test the plugin
 
 Follow the [dated testing guide](./docs/testing.md) to test the published plugin, connect only the MCP server, or load a local checkout.

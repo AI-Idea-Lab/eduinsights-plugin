@@ -140,9 +140,23 @@ Book a campus tour for me next Tuesday.
 
 Expected: EduInsights does not activate a research tool for an action it cannot perform.
 
-## Refresh an installed Claude Code plugin
+## Update an installed plugin
 
-When the public repository changes, update the marketplace and plugin:
+### Update in Codex
+
+Treat Codex updates as manual. Refresh the marketplace, install the latest published version, and verify the result:
+
+```bash
+codex plugin marketplace upgrade eduinsights
+codex plugin add eduinsights@eduinsights
+codex plugin list --json
+```
+
+Start a new ChatGPT desktop conversation or Codex task after the update.
+
+### Update in Claude Code
+
+Third-party Claude Code marketplaces do not update automatically by default. Update the marketplace and plugin manually:
 
 ```bash
 claude plugin marketplace update eduinsights
@@ -151,6 +165,10 @@ claude plugin update eduinsights@eduinsights
 
 Run `/reload-plugins` inside an open Claude Code session, or start a new session.
 
+To enable automatic updates, run `/plugin` and open **Marketplaces**. Select `eduinsights`, then choose **Enable auto-update**.
+
+Claude Code checks for updates after startup. The current session keeps the version it loaded until you reload or restart.
+
 ## Troubleshooting
 
 - **Developer mode does not appear in ChatGPT:** your account or workspace policy may not allow it.
@@ -158,7 +176,7 @@ Run `/reload-plugins` inside an open Claude Code session, or start a new session
 - **ChatGPT shows old tool metadata:** refresh the connection, then start a new chat.
 - **Claude Code cannot find the plugin:** confirm `.claude-plugin/marketplace.json` exists in the public repository and run `claude plugin validate .` from the plugin directory.
 - **Claude Code installed an older copy:** update the marketplace and plugin, then reload plugins or start a new session.
-- **ChatGPT desktop or Codex installed an older copy:** upgrade the marketplace, remove the plugin, then install it again.
+- **ChatGPT desktop or Codex installed an older copy:** upgrade the marketplace, add the plugin again, then start a new task.
 
 ## Reference material
 
@@ -169,6 +187,7 @@ These official sources were rechecked on August 17, 2026:
 - OpenAI: [Use and install plugins](https://learn.chatgpt.com/docs/plugins)
 - OpenAI: [Codex plugin commands](https://learn.chatgpt.com/docs/developer-commands#codex-plugin)
 - Anthropic: [Discover and install plugins](https://code.claude.com/docs/en/discover-plugins)
+- Anthropic: [Plugins reference](https://code.claude.com/docs/en/plugins-reference)
 - Anthropic: [Create and test plugins](https://code.claude.com/docs/en/plugins)
 - Anthropic: [Create and distribute a plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces)
 
