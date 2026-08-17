@@ -1,0 +1,40 @@
+{
+  "name": "eduinsights",
+  "version": "0.1.0",
+  "description": "Research U.S. colleges, reported fields, careers, and observed AI use with traceable public evidence.",
+  "author": {
+    "name": "AI Idea Lab",
+    "url": "https://eduinsights.ai/"
+  },
+  "homepage": "https://eduinsights.ai/",
+  "repository": "https://github.com/AI-Idea-Lab/eduinsights-plugin",
+  "keywords": [
+    "education",
+    "colleges",
+    "careers",
+    "workforce",
+    "public-data",
+    "research"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "EduInsights",
+    "shortDescription": "Research colleges, fields, and careers",
+    "longDescription": "Ask grounded questions about U.S. colleges, reported degrees, career paths, pay, outlook, accreditation, and observed AI use.",
+    "developerName": "AI Idea Lab",
+    "category": "Data",
+    "capabilities": [
+      "Read-only research",
+      "Source tracing",
+      "Decision briefs"
+    ],
+    "websiteURL": "https://eduinsights.ai/",
+    "brandColor": "#5452E8",
+    "defaultPrompt": [
+      "Compare computer science at UNC-Chapel Hill and NC State.",
+      "Which careers related to nursing show observed AI use?",
+      "Audit this college comparison for source and coverage gaps."
+    ]
+  }
+}

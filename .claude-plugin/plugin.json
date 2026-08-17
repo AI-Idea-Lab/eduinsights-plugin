@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "eduinsights",
+  "displayName": "EduInsights",
+  "version": "0.1.0",
+  "description": "Research U.S. colleges, reported fields, careers, and observed AI use. Every answer can show its sources.",
+  "author": {
+    "name": "AI Idea Lab",
+    "url": "https://eduinsights.ai/"
+  },
+  "homepage": "https://eduinsights.ai/",
+  "repository": "https://github.com/AI-Idea-Lab/eduinsights-plugin",
+  "keywords": [
+    "education",
+    "colleges",
+    "careers",
+    "workforce",
+    "public-data",
+    "research"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "eduinsights": {
+      "type": "http",
+      "url": "https://mcp.eduinsights.ai/mcp"
+    }
+  }
+}

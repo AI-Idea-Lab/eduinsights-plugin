@@ -1,0 +1,30 @@
+{
+  "name": "eduinsights",
+  "owner": {
+    "name": "AI Idea Lab",
+    "url": "https://eduinsights.ai/"
+  },
+  "description": "Install EduInsights research workflows and its read-only MCP server.",
+  "plugins": [
+    {
+      "name": "eduinsights",
+      "displayName": "EduInsights",
+      "source": ".",
+      "description": "Research U.S. colleges, reported fields, careers, and observed AI use. Every answer can show its sources.",
+      "author": {
+        "name": "AI Idea Lab",
+        "url": "https://eduinsights.ai/"
+      },
+      "homepage": "https://eduinsights.ai/",
+      "repository": "https://github.com/AI-Idea-Lab/eduinsights-plugin",
+      "category": "data",
+      "tags": [
+        "education",
+        "colleges",
+        "careers",
+        "workforce",
+        "research"
+      ]
+    }
+  ]
+}
