@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "eduinsights",
   "displayName": "EduInsights",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Research U.S. colleges, reported fields, careers, and observed AI use. Every answer can show its sources.",
   "author": {
     "name": "AI Idea Lab",

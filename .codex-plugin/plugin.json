@@ -1,6 +1,6 @@
 {
   "name": "eduinsights",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Research U.S. colleges, reported fields, careers, and observed AI use with traceable public evidence.",
   "author": {
     "name": "AI Idea Lab",
@@ -27,6 +27,7 @@
     "capabilities": [
       "Read-only research",
       "Source tracing",
+      "Ontology and mart guidance",
       "Decision briefs"
     ],
     "websiteURL": "https://eduinsights.ai/",

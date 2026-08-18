@@ -23,6 +23,7 @@ Claude can select a workflow from your request. You can also invoke one directly
 
 ```text
 /eduinsights:research-with-eduinsights
+/eduinsights:understand-eduinsights-ontology
 /eduinsights:audit-eduinsights-evidence
 /eduinsights:draft-eduinsights-brief
 ```
